@@ -38,13 +38,12 @@ def get_random_pokemon() -> dict[str: str|None]:
 # --------------------
 
 STATIC_GET_RESPONSES = {
-    "pgl.news.information_list":   json.dumps({"list":[], "total_count":0}).encode,
+    "pgl.news.information_list":   json.dumps({"list":[], "total_count":0}).encode(),
     "pgl.member.profile.my_state": b"{}",
     "pgl.top.init":                b"{}",
     "pdw.home.my_bridge":          b"{}",
     "pdw.croft.tutorial_start":    b"{}",
-    "pdw.croft.tutorial_end":      b"{}",
-    "pdw.home.footprint_list":     b"{}",
+    "pdw.croft.tutorial_end":      b"{}"
 }
 
 STATIC_POST_RESPONSES = {
@@ -215,6 +214,30 @@ def handle_my_island(_query):
     }
     return json.dumps(response).encode()
 
+def handle_footprint_list(_query):
+    footprint_list = {"list":[]}
+
+    valid_footprints = [598,25,85,623,2,32,183,428,648,636,616,609,594,593,574,564,558,547,543,520,518,491,474,421,420,406,121,120,13,10,647]
+
+    for _ in range(10):
+        footprint = {
+            "is_pdw": 1,
+            "is_gts": 0,
+            "is_ds": 0,
+            "friend_type": 0,
+            "updated_at": "2026/05/06 22:00",
+            "pokemon_nickname": "",
+            "pokemon_name": "Pikachu",
+            "pgl_name": "PlayerName",
+            "pokemon_no": choice(valid_footprints),
+            "form_no": "0"
+        }
+        footprint_list["list"].append(footprint)
+
+    return json.dumps(footprint_list).encode()
+
+# --------
+
 
 def handle_waterpot_list_POST(_query):
     response = {
@@ -237,6 +260,7 @@ DYNAMIC_GET_RESPONSES = {
     "pdw.dreamland.tree_top":    handle_dreamland_tree_top,
     "pdw.item.item_list":        handle_item_list,
     "pdw.home.my_island":        handle_my_island,
+    "pdw.home.footprint_list":   handle_footprint_list
 }
 
 DYNAMIC_POST_RESPONSES = {

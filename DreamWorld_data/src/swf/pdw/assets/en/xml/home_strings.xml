@@ -22,7 +22,7 @@
 
     <!--Garden-->
     <string id="k_ad_1">[arg0]'s garden</string>
-    <string id="k_ad_4">A Watering Can to water Berries!</string>
+    <string id="k_ad_4">A Watering Can&#xD;to water Berries!</string>
 
     <!--Share Shelf-->
     <string id="s_aa_1">[arg0]'s Share Shelf</string>
@@ -72,8 +72,8 @@
     <!-- Friend Board -->
     <string id="p_aa_1">Friend Board</string>
     <string id="p_ah_1">No Pokémon have joined you.</string>
-    <string id="p_aa_4">POKÉMON YOU WANT</string>
-    <!--Next line should be "TO TAKE X/10" where X is a variable-->
+    <string id="p_aa_4">POKÉMON YOU WANT&#xD;TO TAKE</string>
+    <!--Next should be "TO TAKE X/10" where X is a variable-->
     <!--There should be another line somewhere else reading "THE POKEMON MARKED WITH () WILL BE SENT TO THE ENTRALINK" where an image of a blue dot is between ()-->
     <string id="p_aa_5">Pokémon already sent</string>
     <string id="p_aa_6">Pokémon to take</string>

@@ -53,14 +53,14 @@
     <string id="y_ag_6">y_ah_1</string>
 
     <!-- game1.swf -->
-    <string id="y_ad_10">y_ad_10</string>
-    <string id="y_ad_11">y_ad_11</string>
+    <string id="y_ad_10">[ポケモン名] seems to be searching for a hidden Pokémon.</string>
+    <string id="y_ad_11">Search for a Pokémon with [ポケモン名]?</string>
     <string id="y_ag_5">y_ag_5</string>
     <string id="y_ag_6">y_ag_6</string>
 
     <!-- game2.swf -->
-    <string id="y_ad_2">y_ad_2</string>
-    <string id="y_ad_4">y_ad_4</string>
+    <string id="y_ad_2">[ポケモン名] looks hungry.</string>
+    <string id="y_ad_4">Scoop ice cream with [ポケモン名]?</string>
     <string id="y_ag_1">y_ag_1</string>
     <string id="y_ag_2">y_ag_2</string>
 
@@ -77,8 +77,8 @@
     <string id="y_ag_8">y_ag_8</string>
 
     <!-- game5.swf -->
-    <string id="y_ad_15">y_ad_15</string> <!-- request (subheader) -->
-    <string id="y_ad_16">y_ad_16</string> <!-- select (line with yes/no) --> 
+    <string id="y_ad_15">It looks like [ポケモン名] is thirsty.</string> <!-- request (subheader) -->
+    <string id="y_ad_16">Serve drinks with [ポケモン名]?</string> <!-- select (line with yes/no) --> 
     <string id="y_ag_10">y_ag_10</string> <!-- failure -->
     <string id="y_ag_11">y_ag_11</string> <!-- abort (choose to quit)-->
 
@@ -89,8 +89,8 @@
     <string id="y_aa_15">y_aa_15</string>
 
     <!-- game7.swf -->
-    <string id="y_ad_18">y_ad_18</string>
-    <string id="y_ad_19">y_ad_19</string>
+    <string id="y_ad_18">It looks like [ポケモン名] wants to test its courage.</string>
+    <string id="y_ad_19">Blow out candles with [ポケモン名]?</string>
     <string id="y_ag_12">y_ag_12</string>
     <string id="y_ag_13">y_ag_13</string>
 
@@ -101,8 +101,8 @@
     <string id="y_ag_15">y_ag_15</string>
 
     <!-- game9.swf -->
-    <string id="y_ad_22">y_ad_22</string>
-    <string id="y_ad_23">y_ad_23</string>
+    <string id="y_ad_22">It looks like [ポケモン名] wants to play on the ice.</string>
+    <string id="y_ad_23">Play on the ice with [ポケモン名]?</string>
     <string id="y_ag_16">y_ag_16</string>
     <string id="y_ag_17">y_ag_17</string>
 
@@ -113,25 +113,14 @@
     <string id="y_ag_19">y_ag_19</string>
 
     <!-- game11.swf -->
-    <string id="y_ad_30">y_ad_30</string>
-    <string id="y_ad_31">y_ad_31</string>
+    <string id="y_ad_30">It looks like [ポケモン名] is thirsty.</string>
+    <string id="y_ad_31">Serve drinks with [ポケモン名]?</string>
     <string id="y_ad_32">y_ad_32</string>
     <string id="y_ad_33">y_ad_33</string>
 
     <!-- game12.swf -->
-    <string id="y_ad_26">y_ad_26</string>
-    <string id="y_ad_27">y_ad_27</string>
+    <string id="y_ad_26">[ポケモン名] is interested in the treasure box.</string>
+    <string id="y_ad_27">Open the treasure box with [ポケモン名]?</string>
     <string id="y_ad_28">y_ad_28</string>
     <string id="y_ad_29">y_ad_29</string>
 </data>
-
-<!--Writing these down now so I don't have to search for them later when I know where they go-->
-
-<!--It looks like [ポケモン名] wants to test its courage.-->
-<!--Blow out candles with [ポケモン名]?-->
-
-<!--It looks like [ポケモン名] is thirsty.-->
-<!--Serve drinks with [ポケモン名]?-->
-
-<!--It looks like [ポケモン名] wants to play on the ice.-->
-<!--Play on the ice with [ポケモン名]?-->

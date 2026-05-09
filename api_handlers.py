@@ -14,13 +14,13 @@ from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent
 
-with open(ROOT_DIR / "save_data" / "player_data.json") as f:
+with open(ROOT_DIR / "save_data" / "player_data.json", encoding="UTF-8") as f:
     player_data = json.load(f)
 
-with open(ROOT_DIR / "json_data" / "items.json") as f:
+with open(ROOT_DIR / "json_data" / "items.json", encoding="UTF-8") as f:
     item_info = json.load(f)
 
-with open(ROOT_DIR / "json_data" / "pokemon.json") as f:
+with open(ROOT_DIR / "json_data" / "pokemon.json", encoding="UTF-8") as f:
     pokemon_info = json.load(f)
 
 with open(ROOT_DIR / "json_data" / "area_data.json", encoding="UTF-8") as f:

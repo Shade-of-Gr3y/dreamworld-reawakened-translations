@@ -23,7 +23,7 @@ with open(ROOT_DIR / "json_data" / "items.json") as f:
 with open(ROOT_DIR / "json_data" / "pokemon.json") as f:
     pokemon_info = json.load(f)
 
-with open(ROOT_DIR / "json_data" / "area_data.json") as f:
+with open(ROOT_DIR / "json_data" / "area_data.json", encoding="UTF-8") as f:
     area_info = json.load(f)
 
 pokemon_natures = ("Adamant","Bashful","Bold","Brave","Calm","Careful","Docile","Gentle","Hardy","Hasty","Impish","Jolly","Lax","Lonely","Mild","Modest","Naive","Naughty","Quiet","Quirky","Rash","Relaxed","Sassy","Serious","Timid")
@@ -125,7 +125,7 @@ def handle_dreamland_top(_query):
                     "form_no": pkmn.get("form_no", "0"),
                     "pokename": pkmn["pokemon_name"]
                 },
-                "minigame_id": choice([2, 3, 4, 6, 8, 9, 10, 12]),
+                "minigame_id": choice([1, 2, 3, 4, 6, 8, 9, 10, 12]),
                 "kinomi_id": 0,
                 "kinomi_count": 0,
                 "pokeitem_id": 0,
@@ -153,7 +153,7 @@ def handle_dreamland_top(_query):
     eligible_areas = []
     area_weights   = []
     for area_id, area in area_info.items():
-        if area_id == 50: #we don't have the file for Pokémon Café Forest
+        if area_id == "50": #we don't have the file for Pokémon Café Forest
             continue
 
         if player_points < area["req_points"][game_key]:
@@ -190,7 +190,6 @@ def handle_dreamland_top(_query):
         natdex = choice(list(eligible.keys()))
         pdata  = eligible[natdex]
         pkmn_entry = pokemon_info.get(natdex)
-        print(natdex)
 
         pkmn = {**pkmn_entry, "pokemon_no": natdex}
         return pkmn, pdata
@@ -201,9 +200,8 @@ def handle_dreamland_top(_query):
                     if player_points >= idata["req_points"]]
 
         item_id = choice(eligible)
-        print(area["area_name"], item_id)
 
-        #items do not all show up at the same frequency, but i dont know if we have enough data to determine that
+        #items do not all show up at the same frequency, but i dont know if we have enough data to determine what the rarities are.
         #its probably at least partially based on the req_points to unlock those items
         return item_id
 

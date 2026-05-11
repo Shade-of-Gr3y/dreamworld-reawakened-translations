@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data locale="ja">
-    <string id="lo_a_1">lo_a_1</string>
+    <string id="m_ac_1">Dream Pal request</string>
+    <string id="m_ac_2">This Pokémon has invited you to be a Dream Pal.&#xD;Go to this Pokémon's home?</string>
+
+	<string id="m_ac_3">Nickname</string>
+	<string id="m_ac_4">PGL Nickname</string>
+	<string id="m_ac_6">O.T.</string>
+	<string id="m_ac_7">Lv.</string>
+	<string id="m_ac_8">Type</string>
+	<string id="m_ac_9">Gender</string>
+	<string id="m_ac_10">Nature</string>
+	<string id="m_ac_12">Activities</string>
+
+    <string id="m_ac_16">Go to this Pokémon's home.</string>
+    <string id="m_ac_17">Close</string>
+
+    <string id="f_af_14">Dream Pal request</string>
+    <string id="f_af_15">Watering</string>
 </data>

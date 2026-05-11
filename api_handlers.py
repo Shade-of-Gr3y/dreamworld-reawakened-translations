@@ -114,18 +114,26 @@ def handle_footprint_list(_query):
     valid_footprints = [598,25,85,623,2,32,183,428,648,636,616,609,594,593,574,564,558,547,543,520,518,491,474,421,420,406,121,120,13,10,647]
 
     for _ in range(10):
+        pkmn = game_data.get_random_pokemon(valid_footprints)
         footprint = {
-            "is_pdw": 1,
-            "is_gts": 0,
-            "is_ds": 0,
-            "friend_type": 0,
+            "is_pdw": randint(0, 1),
+            "is_gts": randint(0, 1),
+            "is_ds": randint(0, 1),
+            "friend_type": randint(0, 2),
             "updated_at": "2026/05/06 22:00",
             "pokemon_nickname": "pokemon_nickname",
-            "pokemon_name": "pokemon_name",
+            "pokemon_name": pkmn["pokemon_name"],
             "pgl_name": "pgl_name",
-            "alter_rom_name": "alter_rom_name",
-            "pokemon_no": choice(valid_footprints),
-            "form_no": "0"
+            "pokemon_no": pkmn["pokemon_no"],
+            "form_no": pkmn.get("form_no", "0"), #below this is used for the popup menu
+            "oyaname": "oyaname",
+            "level": pkmn["level"],
+            "type1": pkmn["type1"],
+            "type2": pkmn["type2"],
+            "sex_id": choice(pkmn["gender_ratio"]),
+            "personality": choice(game_data.pokemon_natures),
+            "exchange_flag": randint(0, 1),
+            "water_flag": randint(0, 1)
         }
         footprint_list["list"].append(footprint)
 

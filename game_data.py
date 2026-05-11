@@ -53,8 +53,13 @@ def generate_otoken():
 def date_to_unix(datetime_string: str):
     return datetime.strptime(datetime_string, "%Y-%m-%d")
 
-def get_random_pokemon() -> dict[str: str|None]:
-    pkmn = choice(list(pokemon_info.keys()))
+def get_random_pokemon(restriction_list: list[int] = []) -> dict[str: str|None]:
+    if restriction_list == []:
+        pkmn_options = [i for i in list(pokemon_info.keys())]
+    else:
+        pkmn_options = [i for i in list(pokemon_info.keys()) if int(i.split("-")[0]) in restriction_list]
+
+    pkmn = choice(pkmn_options)
     natdex = pkmn.split("-")[0]
 
     return {**pokemon_info[pkmn], "pokemon_no": natdex}

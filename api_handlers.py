@@ -70,8 +70,8 @@ def handle_item_list(_query):
         item_list = sorted(
             item_list,
             key=lambda x: (
-                int(x["bunrui_no"]),
-                int(x["b_hozon_sentou"])
+                x["bunrui_no"],
+                x["b_hozon_sentou"]
             )
         )
     elif sort_key == 3: #name

@@ -31,16 +31,16 @@ pokemon_natures = ("Adamant","Bashful","Bold","Brave","Calm","Careful","Docile",
 # --------------------
 
 def generate_otoken():
-    return f"{randint(1, 99)}dwt{player_data['member']['world_id']}{format(int(time.time()), 'x')}.{randint(10000000, 99999999)}"
+    return f"{randint(1, 99)}dwt{player_data['member']['world_id']}{int(time.time()):x}.{randint(10000000, 99999999)}"
 
 def date_to_unix(datetime_string: str):
-    return datetime.strptime(datetime_string, "%Y-%m-%d")
+    return datetime.strptime(datetime_string, "%Y-%m-%d").timestamp()
 
-def get_random_pokemon(restriction_list: list[int] = []) -> dict[str: str|None]:
-    if restriction_list == []:
-        pkmn_options = [i for i in list(pokemon_info.keys())]
+def get_random_pokemon(restriction_list: list[int] | None = None) -> dict[str: str|None]:
+    if restriction_list is None:
+        pkmn_options = [i for i in list(pokemon_info)]
     else:
-        pkmn_options = [i for i in list(pokemon_info.keys()) if int(i.split("-")[0]) in restriction_list]
+        pkmn_options = [i for i in list(pokemon_info) if int(i.split("-")[0]) in restriction_list]
 
     pkmn = choice(pkmn_options)
     natdex = pkmn.split("-")[0]
@@ -79,9 +79,9 @@ class ChestManager:
             new_item = {
                 "pokeitem_id": item_id,
                 "pokeitem": curr_item_info["item_name"],
-                "item_cnt": 1,
-                "bunrui_no": "1",
-                "b_hozon_sentou": "1",
+                "item_cnt": count,
+                "bunrui_no": curr_item_info["first_sort"],
+                "b_hozon_sentou": curr_item_info["second_sort"],
                 "date": current_date,
                 "field_line1": curr_item_info["desc"][0],
                 "field_line2": curr_item_info["desc"][1],

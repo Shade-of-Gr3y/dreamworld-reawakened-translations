@@ -208,8 +208,6 @@ def handle_dreamland_tree_top(_query):
         }
     )   
 
-    encount_list = []
-    
     response = {"pokemon_list": pokemon_list, "encount_list": encount_list}
     logging.info("tree_top response: %s", json.dumps(response))
     return json.dumps(response).encode()

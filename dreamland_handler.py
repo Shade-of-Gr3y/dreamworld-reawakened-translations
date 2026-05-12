@@ -225,7 +225,7 @@ def handle_game_clear(_query):
                 "pokemon_no":     pkmn["pokemon_no"],
                 "pokename":       pkmn["pokemon_name"],
                 "form_no":        pkmn.get("form_no", "0"),
-                "sex_id":         pkmn["gender_id"],
+                "sex_id":         choice(pkmn["gender_ratio"]),
                 "waza_name_disp": "Sunny Day" if "special_moves" not in pkmn else choice(pkmn["special_moves"])["move_name"],
                 "waza_count":     4,
                 "action_type":    "1",

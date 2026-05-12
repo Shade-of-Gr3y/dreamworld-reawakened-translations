@@ -54,7 +54,6 @@ def handle_waterpot_list_GET(_query):
 
 
 def handle_item_list(_query):
-    print(_query)
     item_kind_id = int(_query.get("item_kind_id", 0))
     sort_key     = int(_query.get("sort_key", 3))
     offset       = int(_query.get("offset", 0))

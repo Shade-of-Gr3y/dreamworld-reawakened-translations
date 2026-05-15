@@ -2,7 +2,6 @@ import math
 import struct
 import extra_data
 from pathlib import Path
-from itertools import batched
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -381,8 +380,8 @@ class DataReader:
 
         out_str = b''
         
-        for batch in batched(raw, 2):
-            batch = bytes(batch)
+        for i in range(0, len(raw) - 1, 2):
+            batch = raw[i:i + 2]
             if batch == b'\xff\xff':
                 break
             out_str += batch

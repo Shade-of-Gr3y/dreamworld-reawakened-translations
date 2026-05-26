@@ -7,13 +7,12 @@ import logging
 from pathlib import Path
 from config import args
 
-from api_handlers import (
-    STATIC_GET_RESPONSES,
-    STATIC_POST_RESPONSES,
-    DYNAMIC_GET_RESPONSES,
-    DYNAMIC_POST_RESPONSES,
-    build_swf_params
+from routes import (
+    GET_RESPONSES,
+    POST_RESPONSES
 )
+
+from utility import build_swf_params
 
 # ---------------
 # Request handler
@@ -23,13 +22,11 @@ ROOT_DIR = Path(__file__).resolve().parent
 
 class S(BaseHTTPRequestHandler):
 
-    def _dispatch_api(self, api_name, query, static_map, dynamic_map):
+    def _dispatch_api(self, api_name, query, api_map):
         """Look up api_name in the dispatch tables and write the response."""
-        
-        if api_name in static_map:
-            body = static_map[api_name]
-        elif api_name in dynamic_map:
-            body = dynamic_map[api_name](query)
+
+        if api_name in api_map:
+            body = api_map[api_name](query)
         else:
             logging.warning("Unknown API: %s", api_name)
             self.send_response(501)
@@ -55,7 +52,7 @@ class S(BaseHTTPRequestHandler):
         logging.info("GET %s", self.path)
         parsed = urlsplit(self.path)
         path = escape(parsed.path)
-        
+
         if path.endswith("main.swf") and not parsed.query:
             url_params = build_swf_params()
             query_string = urlencode(url_params)
@@ -70,13 +67,13 @@ class S(BaseHTTPRequestHandler):
             query = {k: v[0] for k, v in parse_qs(parsed.query, strict_parsing=True).items()}
             api_name = query["p"]
             logging.info("API GET: %s", api_name)
-            self._dispatch_api(api_name, query, STATIC_GET_RESPONSES, DYNAMIC_GET_RESPONSES)
+            self._dispatch_api(api_name, query, GET_RESPONSES)
             return
 
         if path == "/":
             with open(ROOT_DIR / "DreamWorld_data" / "Dream_Park.htm", "rb") as f:
                 data = f.read()
-            
+
             self.send_response(200)
             self.send_header("Content-Length", str(len(data)))
             self.end_headers()
@@ -87,13 +84,13 @@ class S(BaseHTTPRequestHandler):
             file_path = ROOT_DIR / "DreamWorld_data" / path.lstrip("/")
         else:
             file_path = ROOT_DIR / path.lstrip("/")
-        
+
         if file_path.is_file():
             self._log_referrer(file_path)
-            
+
             with open(file_path, "rb") as f:
                 data = f.read()
-            
+
             self.send_response(200)
             self.send_header("Content-Length", str(len(data)))
             self.end_headers()
@@ -107,16 +104,16 @@ class S(BaseHTTPRequestHandler):
 
     def do_POST(self):
         logging.info("POST %s", self.path)
-        
+
         content_length = int(self.headers["Content-Length"])
         post_data = self.rfile.read(content_length)
         query = {k: v[0] for k, v in parse_qs(post_data.decode(), strict_parsing=True).items()}
         api_name = query["p"]
-        
+
         logging.info("API POST: %s", api_name)
-        
+
         self._log_referrer(f"POST:{api_name}")
-        self._dispatch_api(api_name, query, STATIC_POST_RESPONSES, DYNAMIC_POST_RESPONSES)
+        self._dispatch_api(api_name, query, POST_RESPONSES)
 
 
 # ------------
@@ -124,7 +121,7 @@ class S(BaseHTTPRequestHandler):
 # ------------
 
 def run(server_class=HTTPServer, handler_class=S, port=args.port, debug=False, is_random=False):
-    
+
     server_address = ("0.0.0.0", port)
     httpd = server_class(server_address, handler_class)
 
@@ -133,15 +130,15 @@ def run(server_class=HTTPServer, handler_class=S, port=args.port, debug=False, i
     }
 
     log_level = logging.DEBUG if httpd.app_config["debug"] else logging.INFO
-    
+
     logging.basicConfig(level=log_level)
     logging.info("Server started!%s\n", " (debug mode)" if httpd.app_config["debug"] else "")
-    
+
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
         pass
-    
+
     httpd.server_close()
-    
+
     logging.info("Stopping server...\n")

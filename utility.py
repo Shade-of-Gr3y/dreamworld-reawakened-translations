@@ -1,13 +1,33 @@
 #!/usr/bin/env python3
 import json
 import time
-from enum import Enum, auto
+import utility
+from typing import List
 from pathlib import Path
 from random import choice
 from random import randint
+from enum import Enum, auto
 from datetime import datetime
 
 ROOT_DIR = Path(__file__).resolve().parent
+
+# --------------------
+# Special handler for main.swf injection
+# --------------------
+
+def build_swf_params() -> dict:
+    player_data = utility.read_player_data()
+    return {
+        "json": json.dumps({
+            "member": player_data["member"],
+            "token":  player_data.get("token", ""),
+            "medals": player_data.get("medals", []),
+        }),
+        "v":             "2.0",
+        "api_host_name": "/api/",
+        "page":          "SITE_PDW",
+        "lang":          utility.player_language+".",
+    }
 
 # --------------------
 # Helper data
@@ -48,20 +68,20 @@ class PlayerStatus(Enum):
 def lookup_str(file: str, index: int):
     if index is None:
         return None
-    
+
     index = int(index)
-    
+
     with open(ROOT_DIR / "raw_text" / player_language / f"{file}.txt", "r", encoding="UTF-8") as f:
         strings = f.read().splitlines()
-    
+
     return strings[index]
 
 def lookup_desc(index: int):
     with open(ROOT_DIR / "raw_text" / player_language / "item_descriptions.txt", "r", encoding="UTF-8") as f:
         strings = f.read().splitlines()
-        
+
     string = strings[index].split("\\n")
-    
+
     res = [None, None, None]
     res[:len(string)] = string
     return tuple(res)
@@ -74,6 +94,17 @@ def date_to_unix(datetime_string: str):
     return datetime.strptime(datetime_string, "%Y-%m-%d").timestamp()
 
 def get_random_pokemon(restriction_list: list[int] | None = None) -> dict[str: str|None]:
+    """Retrieves a random Pokémon's data from `pokemon.json`.
+
+    Args:
+        restriction_list: An optional list of National Dex numbers to restrict
+            the pool of possible Pokémon. If None, all Pokémon are eligible.
+
+    Returns:
+        A dictionary containing the randomly selected Pokémon's data.
+        National Dex number is included as 'pokemon_no'.
+    """
+
     if restriction_list is None:
         pkmn_options = [i for i in list(pokemon_info)]
     else:
@@ -89,9 +120,15 @@ def get_random_pokemon(restriction_list: list[int] | None = None) -> dict[str: s
 # --------------------
 
 class ChestManager:
+    """Manages the player's Treasure Chest.
+
+    Attributes:
+        data: A dictionary containing the loaded chest inventory data.
+    """
+
     def __init__(self, data_path):
-        self.path = data_path
-        with open(self.path, encoding="UTF-8") as f:
+        self._path = data_path
+        with open(self._path, encoding="UTF-8") as f:
             self.data = json.load(f)
 
     def localize_names(self):
@@ -103,11 +140,11 @@ class ChestManager:
             item["field_line1"] = item_desc[0]
             item["field_line2"] = item_desc[1]
             item["field_line3"] = item_desc[2]
-        
+
         self.save()
 
     def save(self):
-        with open(self.path, "w", encoding="UTF-8") as f:
+        with open(self._path, "w", encoding="UTF-8") as f:
             json.dump(self.data, f, indent=2, ensure_ascii=False)
 
     def fetch_item_by_id(self, item_id):
@@ -125,7 +162,7 @@ class ChestManager:
         else:
             curr_item_info = item_info[str(item_id)]
             self.data["cnt"] += 1
-            
+
             item_desc = lookup_desc(item_id)
             new_item = {
                 "pokeitem_id": item_id,
@@ -158,9 +195,15 @@ class ChestManager:
 
 
 class CropManager:
+    """Manages the player's Berry garden.
+
+    Attributes:
+        data: A dictionary containing the loaded Berry plot data.
+    """
+
     def __init__(self, data_path):
-        self.path = data_path
-        with open(self.path, encoding="UTF-8") as f:
+        self._path = data_path
+        with open(self._path, encoding="UTF-8") as f:
             self.data = json.load(f)
 
     def localize_names(self):
@@ -175,16 +218,16 @@ class CropManager:
             crop["desc1"] = berry_desc[0]
             crop["desc2"] = berry_desc[1]
             crop["desc3"] = berry_desc[2]
-        
+
         self.save()
 
     def save(self):
-        with open(self.path, "w", encoding="UTF-8") as f:
+        with open(self._path, "w", encoding="UTF-8") as f:
             json.dump(self.data, f, indent=2, ensure_ascii=False)
 
     def fetch_plot_by_id(self, my_croft_id):
         return next((p for p in self.data["croft_list"] if p["my_croft_id"] == my_croft_id), None)
-    
+
     def water_plot(self, my_croft_id):
         plot = self.fetch_plot_by_id(my_croft_id)
         plot["dirt_hp"] = 100
@@ -219,20 +262,20 @@ class CropManager:
     def harvest(self, my_croft_id):
         plot = self.fetch_plot_by_id(my_croft_id)
         plot_index = self.data["croft_list"].index(plot)
-        
+
         harvest_data = {
             "kinomi_id": plot["kinomi_id"],
             "kinomi": plot["kinomi"],
             "pokeitem_id": plot["pokeitem_id"],
             "count": plot["server"]["yield"]
         }
-        
+
         self.data["croft_list"][plot_index] = {"my_croft_id": my_croft_id, "x": plot["x"], "y": plot["y"]}
-        
+
         self.save()
 
         return harvest_data
-    
+
     def process_berry_growth(self):
         current_time = round(time.time())
 
@@ -257,14 +300,14 @@ class CropManager:
                     plant["server"]["yield"] = max(plant["server"]["yield"] - (curr_berry_data["max_yield"] * 0.2), 2)
                 else:
                     plant["dirt_hp"] -= curr_berry_data["drain_rate"]
-            
+
             if plant["dirt_hp"] < 0:
                 plant["dirt_hp"] = 0
 
             plant["server"]["last_update_time"] = current_time
 
         self.save()
-    
+
 # --------------------
 # Save data
 # --------------------
@@ -279,6 +322,19 @@ def write_player_data(data: dict):
     with open(ROOT_DIR / "save_data" / "player_data.json", "w", encoding="UTF-8") as f:
         json.dump(player_data, f, indent=2, ensure_ascii=False)
 
+def read_entralink_data(param: str):
+    with open(ROOT_DIR / "save_data" / "game_sync.json", encoding="UTF-8") as f:
+        return json.load(f).get(param, [])
+
+def write_entralink_data(data: List[dict], data_type: str):
+    with open(ROOT_DIR / "save_data" / "game_sync.json", encoding="UTF-8") as f:
+        game_sync = json.load(f)
+
+    game_sync[data_type] = data
+
+    with open(ROOT_DIR / "save_data" / "game_sync.json", "w", encoding="UTF-8") as f:
+        json.dump(game_sync, f, indent=2, ensure_ascii=False)
+
 with open(ROOT_DIR / "save_data" / "sleeping_pokemon.json", encoding="UTF-8") as f:
     sleeping_pokemon = json.load(f)
 
@@ -289,7 +345,7 @@ chest = ChestManager(ROOT_DIR / "save_data" / "chest_data.json")
 crops = CropManager(ROOT_DIR / "save_data" / "crop_data.json")
 
 # --------------------
-# Manage Entralinked data
+# Manage Game Sync data
 # --------------------
 
 def update_gamesync_status(status: PlayerStatus):

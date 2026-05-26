@@ -1,13 +1,13 @@
 {
-  "cnt": 9,
+  "cnt": 8,
   "list": [
     {
       "pokeitem_id": 290,
       "pokeitem": "Power Belt",
-      "item_cnt": 62,
+      "item_cnt": 61,
       "bunrui_no": 0,
       "b_hozon_sentou": 10095,
-      "date": "2026-05-02",
+      "date": "2026-05-25",
       "field_line1": "A Pokémon held item that promotes",
       "field_line2": "Defense gain on leveling, but reduces",
       "field_line3": "the Speed stat."
@@ -15,10 +15,10 @@
     {
       "pokeitem_id": 305,
       "pokeitem": "Earth Plate",
-      "item_cnt": 73,
+      "item_cnt": 68,
       "bunrui_no": 0,
       "b_hozon_sentou": 10032,
-      "date": "2026-05-02",
+      "date": "2026-05-25",
       "field_line1": "An item to be held by a Pokémon.",
       "field_line2": "It is a stone tablet that boosts the",
       "field_line3": "power of Ground-type moves."
@@ -26,10 +26,10 @@
     {
       "pokeitem_id": 538,
       "pokeitem": "Eviolite",
-      "item_cnt": 31,
+      "item_cnt": 30,
       "bunrui_no": 0,
       "b_hozon_sentou": 10037,
-      "date": "2026-05-01",
+      "date": "2026-05-25",
       "field_line1": "A mysterious evolutionary lump. When",
       "field_line2": "held, it raises the Defense and Sp. Def",
       "field_line3": "of a Pokémon that can still evolve."
@@ -59,10 +59,10 @@
     {
       "pokeitem_id": 200,
       "pokeitem": "Chilan Berry",
-      "item_cnt": 102,
+      "item_cnt": 97,
       "bunrui_no": 3,
       "b_hozon_sentou": 37,
-      "date": "2026-05-12",
+      "date": "2026-05-25",
       "field_line1": "Weakens a Normal-type attack against",
       "field_line2": "the Pokémon holding this berry.",
       "field_line3": null
@@ -88,17 +88,6 @@
       "field_line1": "If held by a Pokémon,",
       "field_line2": "it recovers from confusion.",
       "field_line3": null
-    },
-    {
-      "pokeitem_id": 548,
-      "pokeitem": "Fire Gem",
-      "item_cnt": 1,
-      "bunrui_no": 0,
-      "b_hozon_sentou": 10041,
-      "date": "2026-05-12",
-      "field_line1": "A gem with an essence of fire. When",
-      "field_line2": "held, it strengthens the power of a",
-      "field_line3": "Fire-type move only once."
     }
   ]
 }

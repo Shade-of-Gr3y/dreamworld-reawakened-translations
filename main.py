@@ -6,23 +6,23 @@ from urllib.parse import quote, unquote, parse_qs, urlencode
 from server import run
 from config import args
 
-import game_data
+import utility
 
 ROOT_DIR = Path(__file__).resolve().parent
 
 def inject_htm_playerdata() -> None:
     """Inject player_data.json into Dream_Park.htm so it displays the correct information on the UI."""
-    
-    with open(ROOT_DIR / "save_data" / "player_data.json") as f:
+
+    with open(ROOT_DIR / "save_data" / "player_data.json", "r", encoding="UTF-8") as f:
         player_data = json.load(f)
 
     htm_file = ROOT_DIR / "DreamWorld_data" / "Dream_Park.htm"
 
     htm_data = bs(htm_file.read_text(), "html.parser")
-    
+
     # entire player_data package
     flashvars_param = htm_data.find_all("param", attrs={"name": "flashvars"})[1]
-    
+
     flashvars = unquote(flashvars_param.get("value"))
     flashvars = parse_qs(flashvars)
     flashvars["json"] = [json.dumps(player_data)]
@@ -52,11 +52,11 @@ if __name__ == "__main__":
         inject_htm_playerdata()
 
     if args.game_sync:
-        game_data.update_gamesync_status(game_data.PlayerStatus.DREAMING)
+        utility.update_gamesync_status(utility.PlayerStatus.DREAMING)
 
-    game_data.crops.process_berry_growth()
+    utility.crops.process_berry_growth()
 
-    game_data.chest.localize_names()
-    game_data.crops.localize_names()
-    
+    utility.chest.localize_names()
+    utility.crops.localize_names()
+
     run(port=args.port, debug=args.debug, is_random=args.random)

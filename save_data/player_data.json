@@ -2,7 +2,7 @@
   "member": {
     "member_id": 5177698,
     "pgl_name": "PlayerName",
-    "country_id": 220,
+    "country_id": 176,
     "special_flag": 0,
     "bridge_flag": 0,
     "special_disp_flag": 0,
@@ -26,8 +26,8 @@
     "pokemon_no": 589,
     "form_no": 0,
     "player_badge_num": 8,
-    "last_started_at": 1779642232,
-    "last_logined_at": 1779642232,
+    "last_started_at": 1779922452,
+    "last_logined_at": 1779922452,
     "deleted_at": null,
     "pdw_copied_at": "2026-05-24 03:03:18",
     "pgl_copied_at": "2026-05-24 03:03:18",
@@ -52,7 +52,7 @@
     "gscd": "QZLW9LE77C",
     "is_downloaded": 0,
     "nextstart_remaintime": 0,
-    "last_started_at_timezone": 1779642232,
+    "last_started_at_timezone": 1779922452,
     "unread_mail_count": 0
   },
   "token": "44tknc6f05e429d75e6.41851889",

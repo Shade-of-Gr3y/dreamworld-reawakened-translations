@@ -77,7 +77,7 @@ def GET_my_island_area(_query):
             "member_id": randint(1,50000),
             "member_savedata_id": randint(1,50000),
             "island_id": 201,
-            "country_id": 220,
+            "country_id": 176,
             "is_ds": randint(0, 1),
             "is_gts": randint(0, 1),
             "is_pdw": randint(0, 1)

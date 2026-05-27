@@ -1,104 +1,74 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<data locale="en">
-
-    <!--Your Home-->
-    <string id="h_ca_1">[PGLニックネーム]'s home</string> <!--Title when entering area-->
-    <string id="h_ca_7">Enter room.</string> <!--Door hover-->
-    <string id="h_ca_8">Footprint Mat</string> <!--Mat hover-->
-    <string id="fr_aa_6">Check Dream Pal map.</string>
-    <string id="h_ca_2">Check Footprint Mat.</string>
-    <string id="fr_aa_4">Enter room.</string>
-
-    <!--Check info-->
-    <string id="new_home_3">No info is available.</string>
-
-    <!--Footprint Mat-->
-    <string id="m_aa_1">Footprint</string> <!--Title when looking at mat-->
-    <string id="m_aa_2">See more</string>
-    <string id="m_af_1">See Details</string>
-    <string id="m_af_2">Check mat</string>
-    <string id="m_af_3">See who visited.</string>
-    <string id="m_af_4">Date</string>
-    <string id="m_af_5">Pokémon</string>
-    <string id="m_af_6">Pokémon's Nickname</string>
-    <string id="m_af_7">Type</string>
-    <string id="m_af_8">Action</string>
-    <string id="m_af_11">Nickname:</string>
-    <string id="m_af_12">PGL Nickname</string>
-
-    <!--Share Shelf-->
-    <string id="s_aa_1">[arg0]'s Share Shelf</string>
-
-    <!--Dream Bridge -->
-    <string id="h_cb_1">Return to your home.</string> <!--Used for the buttons in the top left-->
-    <string id="h_cb_2">Dream Bridge</string>
-    <string id="h_cb_3">Go to the Island of Dreams.</string> <!--Used for the buttons in the top left-->
-    <string id="h_cc_1">Go to the Island of Dreams?</string>
-    <string id="h_cc_2">Yes</string>
-    <string id="h_cc_3">No</string>
-    <string id="h_cc_4">Go to the Island of Dreams.</string> <!--Used for the up arrow and rainbow bridge-->
-
-    <!--Left and Right Arrows-->
-    <string id="h_ha_1">Home</string>
-    <string id="h_ha_2">Dream Bridge</string>
-    <string id="h_ca_6">Share Shelf</string>
-    <string id="h_ca_5">Garden</string>
-
-    <!--Buttons In Top Right-->
-    <string id="h_ca_9">Check info.</string>
-    <string id="h_ca_10">Leave the Pokémon Dream World.</string>
-    
-    <string id="fr_aa_1">fr_aa_1</string>
-    <string id="fr_aa_2">fr_aa_2</string>
-    <string id="fr_aa_3">fr_aa_3</string>
-    <string id="fr_aa_5">fr_aa_5</string>
-
-    <!-- Misc Dialogue Boxes-->
-    <string id="dialog_32">dialog_32</string>
-    <string id="dialog_35">Close</string>
-
-    <!-- Treasure Chest -->
-    <string id="b_aa_1">By date</string>
-    <string id="b_aa_2">By name</string>
-    <string id="b_aa_3">By type</string>
-    <string id="b_aa_4">Send</string>
-    <string id="b_aa_5">b_aa_5</string>
-    <string id="b_aa_6">Treasure Chest</string>
-    <string id="b_af_2">Choose "Leave the Pokémon Dream World" to wake&#xD;your Pokémon and go to the Entree Forest.&#xD;You can receive your item(s) at the entrance.</string>
-
-    <!-- Friend Board -->
-    <string id="p_aa_1">Friend Board</string>
-    <string id="p_ah_1">No Pokémon have joined you.</string>
-    <string id="p_aa_4">POKÉMON YOU WANT&#xD;TO TAKE</string>
-    <!--Next should be "TO TAKE X/10" where X is a variable-->
-    <!--There should be another line somewhere else reading "THE POKEMON MARKED WITH () WILL BE SENT TO THE ENTRALINK" where an image of a blue dot is between ()-->
-    <string id="p_aa_5">Pokémon already sent</string>
-    <string id="p_aa_6">Pokémon to take</string>
-
-    <!--Dream Catalogue-->
-    <string id="i_ab_3">Dream Catalogue</string>
-
-    <string id="h_ea_1">Redecorate</string>
-    <string id="h_ea_2">Check Treasure Chest</string>
-    <string id="h_ea_3">Check Dream Catalogue</string>
-    <string id="h_ea_4">Check Friend Board</string>
-    <string id="h_ea_5">Go outside</string>
-    <string id="h_ea_6">Check Dream Catalogue</string>
-    <string id="h_ea_7">Check Treasure Chest</string>
-    <string id="h_ea_8">Check Friend Board</string>
-    <string id="h_ea_9">Go outside</string>
-    <string id="h_ea_10">Next wall</string>
-    <string id="h_ea_11">[arg0]'s room</string>
-
-    <!-- Pokemon Info-->
-    <string id="h_ee_1">Pokémon Nickname</string>
-    <string id="h_ee_2">PGL Nickname</string>
-    <string id="h_ee_3">Pokémon</string>
-    <string id="h_ee_4">O.T.</string>
-    <string id="h_ee_5">Lv.</string>
-    <string id="h_ee_6">Type</string>
-    <string id="h_ee_7">Gender</string>
-    <string id="h_ee_8">Nature</string>
-    <string id="h_ee_9">Poké Ball Used</string>
-
+<data locale="fr">
+	<string id="Xz_an_1">Xz_an_1</string>
+	<string id="b_aa_5">b_aa_5</string>
+	<string id="dialog_32">dialog_32</string>
+	<string id="dialog_35">dialog_35</string>
+	<string id="fr_aa_1">fr_aa_1</string>
+	<string id="fr_aa_2">fr_aa_2</string>
+	<string id="fr_aa_3">fr_aa_3</string>
+	<string id="fr_aa_4">fr_aa_4</string>
+	<string id="fr_aa_5">fr_aa_5</string>
+	<string id="fr_aa_6">fr_aa_6</string>
+	<string id="h_ca_1">h_ca_1</string>
+	<string id="h_ca_10">h_ca_10</string>
+	<string id="h_ca_11">h_ca_11</string>
+	<string id="h_ca_2">h_ca_2</string>
+	<string id="h_ca_21">h_ca_21</string>
+	<string id="h_ca_5">h_ca_5</string>
+	<string id="h_ca_6">h_ca_6</string>
+	<string id="h_ca_7">h_ca_7</string>
+	<string id="h_ca_8">h_ca_8</string>
+	<string id="h_ca_9">h_ca_9</string>
+	<string id="h_cb_1">h_cb_1</string>
+	<string id="h_cb_2">h_cb_2</string>
+	<string id="h_cb_3">h_cb_3</string>
+	<string id="h_cc_1">h_cc_1</string>
+	<string id="h_cc_2">h_cc_2</string>
+	<string id="h_cc_3">h_cc_3</string>
+	<string id="h_cc_4">h_cc_4</string>
+	<string id="h_ea_1">h_ea_1</string>
+	<string id="h_ea_10">h_ea_10</string>
+	<string id="h_ea_11">h_ea_11</string>
+	<string id="h_ea_2">h_ea_2</string>
+	<string id="h_ea_3">h_ea_3</string>
+	<string id="h_ea_4">h_ea_4</string>
+	<string id="h_ea_5">h_ea_5</string>
+	<string id="h_ea_6">h_ea_6</string>
+	<string id="h_ea_7">h_ea_7</string>
+	<string id="h_ea_8">h_ea_8</string>
+	<string id="h_ea_9">h_ea_9</string>
+	<string id="h_ee_1">h_ee_1</string>
+	<string id="h_ee_2">h_ee_2</string>
+	<string id="h_ee_3">h_ee_3</string>
+	<string id="h_ee_4">h_ee_4</string>
+	<string id="h_ee_5">h_ee_5</string>
+	<string id="h_ee_6">h_ee_6</string>
+	<string id="h_ee_7">h_ee_7</string>
+	<string id="h_ee_8">h_ee_8</string>
+	<string id="h_ee_9">h_ee_9</string>
+	<string id="h_ha_1">h_ha_1</string>
+	<string id="h_ha_2">h_ha_2</string>
+	<string id="i_ab_3">i_ab_3</string>
+	<string id="i_aj_1">i_aj_1</string>
+	<string id="i_aj_3">i_aj_3</string>
+	<string id="m_aa_1">m_aa_1</string>
+	<string id="m_aa_2">m_aa_2</string>
+	<string id="m_af_1">m_af_1</string>
+	<string id="m_af_11">m_af_11</string>
+	<string id="m_af_12">m_af_12</string>
+	<string id="m_af_2">m_af_2</string>
+	<string id="m_af_3">m_af_3</string>
+	<string id="m_af_4">m_af_4</string>
+	<string id="m_af_5">m_af_5</string>
+	<string id="m_af_6">m_af_6</string>
+	<string id="m_af_7">m_af_7</string>
+	<string id="m_af_8">m_af_8</string>
+	<string id="new_home_3">new_home_3</string>
+	<string id="p_aa_1">p_aa_1</string>
+	<string id="p_aa_4">p_aa_4</string>
+	<string id="p_aa_5">p_aa_5</string>
+	<string id="p_aa_6">p_aa_6</string>
+	<string id="p_ah_1">p_ah_1</string>
+	<string id="s_aa_1">s_aa_1</string>
 </data>

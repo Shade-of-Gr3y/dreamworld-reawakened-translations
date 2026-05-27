@@ -8,7 +8,7 @@
 	<string id="s_aa_2">s_aa_2</string>
 	<string id="t_aa_1">t_aa_1</string>
 	<string id="y_aa_1">y_aa_1</string>
-	<string id="y_aa_12">y_aa_12</string>
+	<string id="y_aa_12">[ポケモン名]</string>
 	<string id="y_aa_13">y_aa_13</string>
 	<string id="y_aa_14">y_aa_14</string>
 	<string id="y_aa_15">y_aa_15</string>
@@ -90,7 +90,7 @@
 	<string id="y_zc_3">y_zc_3</string>
 	<string id="y_zc_4">y_zc_4</string>
 	<string id="y_zc_5">y_zc_5</string>
-	<string id="y_zc_6">y_zc_6</string>
-	<string id="y_zc_7">y_zc_7</string>
+	<string id="y_zc_6">Vous</string>
+	<string id="y_zc_7">Vous</string>
 	<string id="y_zd_4">y_zd_4</string>
 </data>

@@ -14,7 +14,7 @@ class StringEntry:
     size: int = 0
     letterSpacing: float = 0.0
     leading: int = 0
-    color: str = "#"
+    color: str = ""
     is_translated: bool = False
     bold: bool = False
     path: str = ""
@@ -112,6 +112,7 @@ class XMLLineEditWidget(QWidget):
         # --- text color ---
         self.text_color = QLineEdit()
         self.text_color.setToolTip("Indicates the color of the text.")
+        self.text_color.setPlaceholderText("#FFFFFF")
         self.text_color.setMaxLength(7)
         self.text_color.setFixedWidth(80)
 
@@ -189,7 +190,7 @@ class MainWindow(QMainWindow):
             "size": 0,
             "letterSpacing": 0.0,
             "leading": 0,
-            "color": "#",
+            "color": "",
             "bold": False,
         }
 
@@ -298,6 +299,7 @@ class MainWindow(QMainWindow):
                 el = ET.SubElement(root, "string", id=entry.string_id)
 
                 if is_format_file:
+                    # only write attributes that differ from their defaults
                     if entry.size != self.string_entry_defaults["size"]:
                         el.set("size", str(entry.size))
                     if entry.letterSpacing != self.string_entry_defaults["letterSpacing"]:
@@ -311,6 +313,7 @@ class MainWindow(QMainWindow):
                 else:
                     if entry.is_translated:
                         el.set("unofficial", "true")
+                    # fall back to string_id if text is empty
                     el.text = entry.text_string or entry.string_id
 
             ET.indent(root, space="\t")
@@ -325,10 +328,24 @@ class MainWindow(QMainWindow):
                 for lang_code, entry in lang_entries.items():
                     string_data = self.text_data[file][string_id]
 
+                    #existing text update
                     if string_data[lang_code]:
-                        string_data[lang_code]["string"] = entry.text_string
-                        string_data[lang_code]["is_translation"] = entry.is_translated
+                        #if the string is cleared, clear the JSON as well
+                        if entry.text_string == "":
+                            string_data[lang_code] = {}
 
+                        else:
+                            string_data[lang_code]["string"] = entry.text_string
+                            string_data[lang_code]["is_translation"] = entry.is_translated
+
+                    #new text addition
+                    elif entry.text_string:
+                        string_data[lang_code] = {
+                            "string": entry.text_string,
+                            "is_translation": entry.is_translated,
+                        }
+
+                    # update format fields, removing any that have reverted to their default
                     string_data.setdefault("format", {})
                     for field in ("size", "letterSpacing", "leading", "color", "bold"):
                         value = getattr(entry, field)
@@ -337,6 +354,7 @@ class MainWindow(QMainWindow):
                         else:
                             string_data["format"].pop(field, None)
 
+                    # remove the format block entirely if nothing is set
                     if not string_data["format"]:
                         string_data.pop("format", None)
 

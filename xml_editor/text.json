@@ -740,7 +740,7 @@
             "format": {
                 "size": "12",
                 "letterSpacing": "1",
-                "color": "0x000000"
+                "color": "#000000"
             },
             "source": [
                 "alert/AlertBusy.as"
@@ -757,7 +757,7 @@
             "format": {
                 "size": "12",
                 "letterSpacing": "1",
-                "color": "0x000000"
+                "color": "#000000"
             },
             "source": [
                 "alert/AlertBusy.as"
@@ -780,7 +780,7 @@
             "format": {
                 "size": "12",
                 "letterSpacing": "1",
-                "color": "0x000000"
+                "color": "#000000"
             },
             "source": [
                 "alert/AlertBusy.as"
@@ -803,7 +803,7 @@
             "format": {
                 "size": "12",
                 "letterSpacing": "1",
-                "color": "0xffffff"
+                "color": "#ffffff"
             },
             "source": [
                 "alert/AlertBusy.as"
@@ -826,7 +826,7 @@
             "format": {
                 "size": "12",
                 "letterSpacing": "1",
-                "color": "0xffffff"
+                "color": "#ffffff"
             },
             "source": [
                 "alert/AlertBusy.as"
@@ -3164,7 +3164,7 @@
             "format": {
                 "size": "12",
                 "letterSpacing": "1",
-                "color": "0x333333",
+                "color": "#333333",
                 "bold": true
             },
             "source": []
@@ -3203,7 +3203,7 @@
             "format": {
                 "size": "12",
                 "letterSpacing": "1",
-                "color": "0x333333",
+                "color": "#333333",
                 "bold": true
             },
             "source": []
@@ -3219,7 +3219,7 @@
             "format": {
                 "size": "12",
                 "letterSpacing": "1",
-                "color": "0x333333",
+                "color": "#333333",
                 "bold": true
             },
             "source": []
@@ -3235,7 +3235,7 @@
             "format": {
                 "size": "12",
                 "letterSpacing": "1",
-                "color": "0x333333",
+                "color": "#333333",
                 "bold": true
             },
             "source": []
@@ -3276,7 +3276,7 @@
             "format": {
                 "size": "12",
                 "letterSpacing": "1",
-                "color": "0x333333",
+                "color": "#333333",
                 "bold": true
             },
             "source": []
@@ -6339,7 +6339,7 @@
             "format": {
                 "size": "18",
                 "letterSpacing": "0",
-                "color": "0xFFFFFF",
+                "color": "#FFFFFF",
                 "bold": true
             },
             "source": [
@@ -6779,7 +6779,7 @@
             "format": {
                 "size": "10",
                 "letterSpacing": "0",
-                "color": "0x333333",
+                "color": "#333333",
                 "bold": true
             },
             "source": [

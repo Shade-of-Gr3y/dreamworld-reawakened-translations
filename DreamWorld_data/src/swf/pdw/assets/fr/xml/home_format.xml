@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<data locale="fr" />
+<data locale="fr">
+	<string id="fr_aa_6" size="4" />
+</data>

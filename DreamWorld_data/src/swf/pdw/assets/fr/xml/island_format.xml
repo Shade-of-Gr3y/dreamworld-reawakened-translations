@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<data locale="fr" />
+<data locale="fr">
+	<string id="y_ad_18" size="1" letterSpacing="-0.2" />
+</data>

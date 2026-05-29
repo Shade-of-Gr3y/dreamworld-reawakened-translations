@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data locale="fr">
-	<string id="h_ca_1">h_ca_1</string>
+	<string id="h_ca_1">Maison de [PGLニックネーム]</string>
 	<string id="h_ca_7">h_ca_7</string>
 	<string id="h_ca_8">h_ca_8</string>
 	<string id="fr_aa_6">fr_aa_6</string>
@@ -29,7 +29,7 @@
 	<string id="h_cc_4">h_cc_4</string>
 	<string id="h_ha_1">h_ha_1</string>
 	<string id="h_ha_2">h_ha_2</string>
-	<string id="h_ca_6">h_ca_6</string>
+	<string id="h_ca_6">surplus de Champifeuille</string>
 	<string id="h_ca_5">h_ca_5</string>
 	<string id="h_ca_9">h_ca_9</string>
 	<string id="h_ca_10">h_ca_10</string>
@@ -62,14 +62,14 @@
 	<string id="h_ea_8">h_ea_8</string>
 	<string id="h_ea_9">h_ea_9</string>
 	<string id="h_ea_10">h_ea_10</string>
-	<string id="h_ea_11">h_ea_11</string>
+	<string id="h_ea_11">Maison de [arg0]</string>
 	<string id="h_ee_1">h_ee_1</string>
 	<string id="h_ee_2">h_ee_2</string>
 	<string id="h_ee_3">h_ee_3</string>
 	<string id="h_ee_4">h_ee_4</string>
 	<string id="h_ee_5">h_ee_5</string>
 	<string id="h_ee_6">h_ee_6</string>
-	<string id="h_ee_7">h_ee_7</string>
+	<string id="h_ee_7">Sexe</string>
 	<string id="h_ee_8">h_ee_8</string>
 	<string id="h_ee_9">h_ee_9</string>
 </data>

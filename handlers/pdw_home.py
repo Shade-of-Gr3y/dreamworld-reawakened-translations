@@ -92,6 +92,8 @@ def GET_my_island_area(_query):
 
 
 def GET_pdw_end(_query):
+    utility.update_gamesync_status(utility.PlayerStatus.WAKE_READY)
+
     for proc in psutil.process_iter():
         if "flashplayer" in proc.name():
             proc.kill()

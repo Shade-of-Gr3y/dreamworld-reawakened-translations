@@ -130,7 +130,7 @@ class ChestManager:
 
     def save(self):
         save_data = {
-            "cnt": self.data["list"],
+            "cnt": len(self.data["list"]),
             "list": [
                 {k: v for k, v in item.items() if k not in self._redundant_fields}
                 for item in self.data["list"]
@@ -226,7 +226,7 @@ class CropManager:
         with open(self._path, "w", encoding="UTF-8") as f:
             json.dump(save_data, f, indent=2, ensure_ascii=False)
 
-    def fetch_plot_by_id(self, my_croft_id):
+    def fetch_plot_by_id(self, my_croft_id: int):
         return next((p for p in self.data["croft_list"] if p["my_croft_id"] == my_croft_id), None)
 
     def water_plot(self, my_croft_id):
@@ -235,27 +235,33 @@ class CropManager:
 
         self.save()
 
-    def sow(self, my_croft_id, pokeitem_id):
+    def sow(self, my_croft_id: int, pokeitem_id: int):
         plot = self.fetch_plot_by_id(my_croft_id)
 
         current_time = round(time.time())
 
         berry_id = pokeitem_id - 148
 
+        berry_desc = utility.lookup_str("item_descriptions", pokeitem_id)
+
         plot.update({
             "my_croft_id": my_croft_id,
             "pokeitem_id": pokeitem_id,
-            "kinomi": item_info[pokeitem_id]["item_name"],
+            "kinomi": utility.lookup_str("item", pokeitem_id),
+            "kinomi_id": berry_id,
             "dirt_hp": 100,
             "kinomi_state": 0,
+            "desc1": berry_desc[0],
+            "desc2": berry_desc[1],
+            "desc3": berry_desc[2],
             "x": plot["x"],
             "y": plot["y"],
-            "server": {"planted_at": current_time, "updated_at": current_time, "yield": berry_data[berry_id]["max_yield"]}
+            "server": {"planted_at": current_time, "updated_at": current_time, "yield": berry_data[str(berry_id)]["max_yield"]}
         })
 
         self.save()
 
-    def harvest(self, my_croft_id):
+    def harvest(self, my_croft_id: int):
         plot = self.fetch_plot_by_id(my_croft_id)
         plot_index = self.data["croft_list"].index(plot)
 

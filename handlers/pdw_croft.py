@@ -53,7 +53,7 @@ def POST_kinomi_harvesting(_query):
 
 def POST_kinomi_sowing(_query):
     my_croft_id = int(_query.get("my_croft_id"))
-    pokeitem_id = _query.get("pokeitem_id")
+    pokeitem_id = int(_query.get("pokeitem_id"))
 
     utility.crops.sow(my_croft_id, pokeitem_id)
     utility.chest.remove_item(pokeitem_id, 1)

@@ -107,24 +107,38 @@ class ChestManager:
 
     def __init__(self, data_path):
         self._path = data_path
+        self._redundant_fields = {"pokeitem", "bunrui_no", "b_hozon_sentou", "field_line1", "field_line2", "field_line3"}
         with open(self._path, encoding="UTF-8") as f:
             self.data = json.load(f)
 
-    def localize_names(self):
+    def update_json(self):
         for item in self.data["list"]:
-            item_desc = lookup_str("item_descriptions", item["pokeitem_id"])
+            pokeitem_id = item["pokeitem_id"]
 
-            item["pokeitem"] = lookup_str("item", item["pokeitem_id"])
+            item_desc = lookup_str("item_descriptions", pokeitem_id)
+
+            item["pokeitem"] = lookup_str("item", pokeitem_id)
+
+            item_sort_data = item_info[str(pokeitem_id)]
+
+            item["bunrui_no"] = item_sort_data["first_sort"]
+            item["b_hozon_sentou"] = item_sort_data["second_sort"]
 
             item["field_line1"] = item_desc[0]
             item["field_line2"] = item_desc[1]
             item["field_line3"] = item_desc[2]
 
-        self.save()
-
     def save(self):
+        save_data = {
+            "cnt": self.data["list"],
+            "list": [
+                {k: v for k, v in item.items() if k not in self._redundant_fields}
+                for item in self.data["list"]
+            ]
+        }
+
         with open(self._path, "w", encoding="UTF-8") as f:
-            json.dump(self.data, f, indent=2, ensure_ascii=False)
+            json.dump(save_data, f, indent=2, ensure_ascii=False)
 
     def fetch_item_by_id(self, item_id):
         return next((item for item in self.data["list"] if item["pokeitem_id"] == item_id), None)
@@ -182,10 +196,11 @@ class CropManager:
 
     def __init__(self, data_path):
         self._path = data_path
+        self._redundant_fields = {"kinomi", "kinomi_id", "desc1", "desc2", "desc3"}
         with open(self._path, encoding="UTF-8") as f:
             self.data = json.load(f)
 
-    def localize_names(self):
+    def update_json(self):
         for crop in self.data["croft_list"]:
             if "pokeitem_id" not in crop:
                 continue
@@ -193,16 +208,23 @@ class CropManager:
             berry_desc = lookup_str("item_descriptions", crop["pokeitem_id"])
 
             crop["kinomi"] = lookup_str("item", crop["pokeitem_id"])
+            crop["kinomi_id"] = crop["pokeitem_id"] - 148
 
             crop["desc1"] = berry_desc[0]
             crop["desc2"] = berry_desc[1]
             crop["desc3"] = berry_desc[2]
 
-        self.save()
-
     def save(self):
+        save_data = {
+            "croft_list": [
+                {k: v for k, v in crop.items() if k not in self._redundant_fields}
+                for crop in self.data["croft_list"]
+            ],
+            "diglett_flag": 0
+        }
+
         with open(self._path, "w", encoding="UTF-8") as f:
-            json.dump(self.data, f, indent=2, ensure_ascii=False)
+            json.dump(save_data, f, indent=2, ensure_ascii=False)
 
     def fetch_plot_by_id(self, my_croft_id):
         return next((p for p in self.data["croft_list"] if p["my_croft_id"] == my_croft_id), None)
@@ -220,20 +242,15 @@ class CropManager:
 
         berry_id = pokeitem_id - 148
 
-        berry_desc = lookup_str("item_descriptions", pokeitem_id)
         plot.update({
             "my_croft_id": my_croft_id,
             "pokeitem_id": pokeitem_id,
             "kinomi": item_info[pokeitem_id]["item_name"],
-            "kinomi_id": berry_id,
             "dirt_hp": 100,
-            "desc1": berry_desc[0],
-            "desc2": berry_desc[1],
-            "desc3": berry_desc[2],
             "kinomi_state": 0,
             "x": plot["x"],
             "y": plot["y"],
-            "server": {"planted_time": current_time, "last_update_time": current_time, "yield": berry_data[berry_id]["max_yield"]}
+            "server": {"planted_at": current_time, "updated_at": current_time, "yield": berry_data[berry_id]["max_yield"]}
         })
 
         self.save()
@@ -264,8 +281,8 @@ class CropManager:
 
             curr_berry_data = berry_data[str(plant["kinomi_id"])]
 
-            hours_since_planted = (current_time - plant["server"]["planted_time"]) // 3600
-            hours_since_update = (current_time - plant["server"]["last_update_time"]) // 3600
+            hours_since_planted = (current_time - plant["server"]["planted_at"]) // 3600
+            hours_since_update = (current_time - plant["server"]["updated_at"]) // 3600
 
             hours_at_last_update = hours_since_planted - hours_since_update
 
@@ -283,7 +300,7 @@ class CropManager:
             if plant["dirt_hp"] < 0:
                 plant["dirt_hp"] = 0
 
-            plant["server"]["last_update_time"] = current_time
+            plant["server"]["updated_at"] = current_time
 
         self.save()
 

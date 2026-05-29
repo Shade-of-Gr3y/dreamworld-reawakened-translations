@@ -58,9 +58,9 @@ if __name__ == "__main__":
     if args.game_sync:
         utility.update_gamesync_status(utility.PlayerStatus.DREAMING)
 
-    utility.crops.process_berry_growth()
+    utility.crops.update_json()
+    utility.chest.update_json()
 
-    utility.chest.localize_names()
-    utility.crops.localize_names()
+    utility.crops.process_berry_growth()
 
     run(port=8080, debug=args.debug)

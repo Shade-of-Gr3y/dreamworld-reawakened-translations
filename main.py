@@ -63,4 +63,4 @@ if __name__ == "__main__":
     utility.chest.localize_names()
     utility.crops.localize_names()
 
-    run(port=args.port, debug=args.debug)
+    run(port=8080, debug=args.debug)

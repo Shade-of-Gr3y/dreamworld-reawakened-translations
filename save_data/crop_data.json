@@ -12,6 +12,7 @@
     },
     {
       "my_croft_id": 1002,
+<<<<<<< Updated upstream
       "pokeitem_id": 200,
       "kinomi": "Chilan Berry",
       "kinomi_id": 52,
@@ -38,16 +39,33 @@
       "desc2": "the Pokémon holding this berry.",
       "desc3": null,
       "kinomi_state": 4,
+=======
+      "x": 3,
+      "y": 1
+    },
+    {
+      "my_croft_id": 1003,
+>>>>>>> Stashed changes
       "x": 1,
       "y": 2,
+      "pokeitem_id": 156,
+      "dirt_hp": 100,
+      "kinomi_state": 0,
       "server": {
+<<<<<<< Updated upstream
         "planted_time": 1777785025,
         "last_update_time": 1779754857,
         "yield": 2
+=======
+        "planted_at": 1780094888,
+        "updated_at": 1780094888,
+        "yield": 5
+>>>>>>> Stashed changes
       }
     },
     {
       "my_croft_id": 1004,
+<<<<<<< Updated upstream
       "pokeitem_id": 200,
       "kinomi": "Chilan Berry",
       "kinomi_id": 52,
@@ -81,6 +99,15 @@
         "last_update_time": 1779754857,
         "yield": 2
       }
+=======
+      "x": 2,
+      "y": 2
+    },
+    {
+      "my_croft_id": 1005,
+      "x": 3,
+      "y": 2
+>>>>>>> Stashed changes
     },
     {
       "my_croft_id": 1006,

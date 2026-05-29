@@ -58,6 +58,7 @@
     },
     {
       "pokeitem_id": 200,
+<<<<<<< Updated upstream
       "pokeitem": "Chilan Berry",
       "item_cnt": 97,
       "bunrui_no": 3,
@@ -66,6 +67,10 @@
       "field_line1": "Weakens a Normal-type attack against",
       "field_line2": "the Pokémon holding this berry.",
       "field_line3": null
+=======
+      "item_cnt": 105,
+      "date": "2026-05-29"
+>>>>>>> Stashed changes
     },
     {
       "pokeitem_id": 194,
@@ -80,6 +85,7 @@
     },
     {
       "pokeitem_id": 156,
+<<<<<<< Updated upstream
       "pokeitem": "Persim Berry",
       "item_cnt": 50,
       "bunrui_no": 3,
@@ -88,6 +94,10 @@
       "field_line1": "If held by a Pokémon,",
       "field_line2": "it recovers from confusion.",
       "field_line3": null
+=======
+      "item_cnt": 49,
+      "date": "2026-05-29"
+>>>>>>> Stashed changes
     }
   ]
 }

@@ -18,6 +18,10 @@ class StringEntry:
     bold: bool = False
     path: str = ""
 
+def _string_id_sort_key(string_id: str) -> tuple[int, str]:
+    *prefix_parts, num = string_id.split("_")
+    return ("_".join(prefix_parts), int(num))
+
 class XMLLineEditWidget(QWidget):
     def __init__(self, entry: StringEntry, comparison_text: str | None = None, parent=None):
         super().__init__(parent)
@@ -64,7 +68,7 @@ class XMLLineEditWidget(QWidget):
         main_layout.addLayout(self._build_toolbar_row())
         main_layout.addLayout(self._build_top_row())
 
-        self.text_string.textChanged.connect(lambda: setattr(self.entry, "text_string", self.text_string.toPlainText().replace("↵\n", "\n")))
+        self.text_string.textChanged.connect(lambda: setattr(self.entry, "text_string", self.text_string.toPlainText()))
         self.text_size.valueChanged.connect(lambda v: setattr(self.entry, "size", v))
         self.letter_spacing.valueChanged.connect(lambda v: setattr(self.entry, "letterSpacing", v))
         self.leading.valueChanged.connect(lambda v: setattr(self.entry, "leading", v))
@@ -257,7 +261,7 @@ class MainWindow(QMainWindow):
                 continue
 
             result[sid] = {
-                "string": el.text or "",
+                "string": (el.text or "").replace("\r", "\n"),
                 "is_translation": el.get("unofficial", "false").lower() == "true",
             }
 
@@ -444,14 +448,14 @@ class MainWindow(QMainWindow):
 
             strings_root = ET.Element("data", locale=locale)
 
-            for entry in entries:
+            for entry in sorted(entries, key=lambda e: _string_id_sort_key(e.string_id)):
                 el = ET.SubElement(strings_root, "string", id=entry.string_id)
 
                 if entry.is_translated:
                     el.set("unofficial", "true")
 
                 # fall back to string_id if text is empty
-                el.text = entry.text_string or entry.string_id
+                el.text = (entry.text_string or entry.string_id).replace("\n", "\r")
 
             ET.indent(strings_root, space="\t")
 
@@ -465,7 +469,7 @@ class MainWindow(QMainWindow):
 
             format_root = ET.Element("data", locale=locale)
 
-            for entry in entries:
+            for entry in sorted(entries, key=lambda e: _string_id_sort_key(e.string_id)):
                 attrs = {}
 
                 if entry.size != self.default_entry.size:

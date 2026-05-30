@@ -8,6 +8,13 @@
 	<string id="s_aa_2">Zurück auf deine Insel</string>
 	<string id="t_aa_1">Traumeiche</string>
 	<string id="y_aa_1">Traumeiche</string>
+	<string id="y_aa_2" unofficial="true">Zur Traumeiche&amp;#xD;[画面数] ist gegangen</string>
+	<string id="y_aa_3">Trauminsel—Kleiner Wald</string>
+	<string id="y_aa_4">Trauminsel—Funkelndes Meer</string>
+	<string id="y_aa_5">Trauminsel—Horizont</string>
+	<string id="y_aa_6">Zurück auf deine Insel</string>
+	<string id="y_aa_8">y_aa_8</string>
+	<string id="y_aa_9">y_aa_9</string>
 	<string id="y_aa_12">[ポケモン名] ist interessiert an der Schatztruhe.</string>
 	<string id="y_aa_13">Hilf [ポケモン名]!</string>
 	<string id="y_aa_14">y_aa_14</string>
@@ -16,15 +23,12 @@
 	<string id="y_aa_17">Trauminsel—Schroffer Berg</string>
 	<string id="y_aa_18">Trauminsel—Frostige Höhle</string>
 	<string id="y_aa_19">Trauminsel—Traumpark</string>
-	<string id="y_aa_2" unofficial="true">Zur Traumeiche
-[画面数] ist gegangen</string>
-	<string id="y_aa_3">Trauminsel—Kleiner Wald</string>
-	<string id="y_aa_4">Trauminsel—Funkelndes Meer</string>
-	<string id="y_aa_5">Trauminsel—Horizont</string>
-	<string id="y_aa_6">Zurück auf deine Insel</string>
-	<string id="y_aa_8">y_aa_8</string>
-	<string id="y_aa_9">y_aa_9</string>
 	<string id="y_ad_1" unofficial="true">Es ist [ポケモン名]!</string>
+	<string id="y_ad_2" unofficial="true">[ポケモン名] scheint hungrig zu sein.</string>
+	<string id="y_ad_3">y_ad_3</string>
+	<string id="y_ad_4">Eiscreme schöpfen mit [ポケモン名]?</string>
+	<string id="y_ad_7">Das [ポケモン名] scheint fliegen zu wollen.</string>
+	<string id="y_ad_8">Mit [ポケモン名] ein Luftrennen wagen?</string>
 	<string id="y_ad_10" unofficial="true">[ポケモン名] scheint ein verstecktes Pokémon zu suchen.</string>
 	<string id="y_ad_11">Mit [ポケモン名] nach einem Pokémon suchen?</string>
 	<string id="y_ad_13">Das [ポケモン名] möchte auf dem Rücken von Wailord spielen.</string>
@@ -33,7 +37,6 @@
 	<string id="y_ad_16">Möchtest du [ポケモン名] ein Getränk servieren?</string>
 	<string id="y_ad_18">[ポケモン名] ist auf eine Mutprobe aus!</string>
 	<string id="y_ad_19">Willst du mit [ポケモン名] Kerzen löschen?</string>
-	<string id="y_ad_2" unofficial="true">[ポケモン名] scheint hungrig zu sein.</string>
 	<string id="y_ad_20">[ポケモン名] will Edelsteine sammeln gehen!</string>
 	<string id="y_ad_21">Mit [ポケモン名] Edelsteine sammeln?</string>
 	<string id="y_ad_22">[ポケモン名] möchte auf dem Eis spielen.</string>
@@ -44,17 +47,11 @@
 	<string id="y_ad_27">Mit [ポケモン名] die Schatztruhe öffnen?</string>
 	<string id="y_ad_28">y_ad_28</string>
 	<string id="y_ad_29">y_ad_29</string>
-	<string id="y_ad_3">y_ad_3</string>
 	<string id="y_ad_30">[ポケモン名] hat anscheinend Durst!</string>
 	<string id="y_ad_31">Möchtest du [ポケモン名] ein Getränk servieren?</string>
 	<string id="y_ad_32">y_ad_32</string>
 	<string id="y_ad_33">y_ad_33</string>
-	<string id="y_ad_4">Eiscreme schöpfen mit [ポケモン名]?</string>
-	<string id="y_ad_7">Das [ポケモン名] scheint fliegen zu wollen.</string>
-	<string id="y_ad_8">Mit [ポケモン名] ein Luftrennen wagen?</string>
 	<string id="y_af_1">Mit [ポケモン名] angefreundet!</string>
-	<string id="y_af_10">y_af_10</string>
-	<string id="y_af_11">y_af_11</string>
 	<string id="y_af_2">Pokémon:</string>
 	<string id="y_af_3">Fähigkeit:</string>
 	<string id="y_af_4">Typ:</string>
@@ -63,7 +60,17 @@
 	<string id="y_af_7">[ポケモン名] scheint sich zu freuen!</string>
 	<string id="y_af_8">y_af_8</string>
 	<string id="y_af_9">y_af_9</string>
+	<string id="y_af_10">y_af_10</string>
+	<string id="y_af_11">y_af_11</string>
 	<string id="y_ag_1">Eiszauber fehlgeschlagen.</string>
+	<string id="y_ag_2">y_ag_2</string>
+	<string id="y_ag_3">Das Flugrennen fehlgeschlagen.</string>
+	<string id="y_ag_4">y_ag_4</string>
+	<string id="y_ag_5">Suchspiel fehlgeschlagen.</string>
+	<string id="y_ag_6">y_ag_6</string>
+	<string id="y_ag_7">Wasserspiel mit Wailord fehlgeschlagen.</string>
+	<string id="y_ag_8">y_ag_8</string>
+	<string id="y_ag_9">[ポケモン名] scheint enttäuscht zu sein...</string>
 	<string id="y_ag_10">y_ag_10</string>
 	<string id="y_ag_11">y_ag_11</string>
 	<string id="y_ag_12">y_ag_12</string>
@@ -74,14 +81,6 @@
 	<string id="y_ag_17">y_ag_17</string>
 	<string id="y_ag_18">y_ag_18</string>
 	<string id="y_ag_19">y_ag_19</string>
-	<string id="y_ag_2">y_ag_2</string>
-	<string id="y_ag_3">Das Flugrennen fehlgeschlagen.</string>
-	<string id="y_ag_4">y_ag_4</string>
-	<string id="y_ag_5">Suchspiel fehlgeschlagen.</string>
-	<string id="y_ag_6">y_ag_6</string>
-	<string id="y_ag_7">Wasserspiel mit Wailord fehlgeschlagen.</string>
-	<string id="y_ag_8">y_ag_8</string>
-	<string id="y_ag_9">[ポケモン名] scheint enttäuscht zu sein...</string>
 	<string id="y_ah_1">[ポケモン名] ist verschwunden...</string>
 	<string id="y_ai_1">Das Item  [道具名] wurde gefunden.</string>
 	<string id="y_aj_1"> [道具名] in Schatztruhe abgelegt.</string>
